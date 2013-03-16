@@ -1,0 +1,39 @@
+<html>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+		/*jQuery.post("http://localhost:5000/user", {
+		  "zoneName": "C",
+		  "postalCodes": [110005, 110049]
+		}, function (data, textStatus, jqXHR) {
+		    console.log("Post resposne:"); console.dir(data); console.log(textStatus); console.dir(jqXHR);
+		});
+
+		/*jQuery.get("/shippingZone/list", function (data, textStatus, jqXHR) {
+		    console.log("Get resposne:");
+		    console.dir(data);
+		    console.log(textStatus);
+		    console.dir(jqXHR);
+		});*/
+
+		jQuery.ajax({
+		    url: "http://localhost:5000/user",
+		    type: "PUT",
+		    data: {
+		    	"zoneName": "D",
+		  		"postalCodes": [110005, 110059]
+		    },
+		    success: function (data, textStatus, jqXHR) {
+		        console.log("Post resposne:");
+		        console.dir(data);
+		        console.log(textStatus);
+		        console.dir(jqXHR);
+		    }
+		});
+	});
+</script>
+<body>
+
+</body>
+</html>
