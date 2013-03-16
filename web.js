@@ -7,18 +7,37 @@ app.use(express.logger('dev')); /* 'default', 'short', 'tiny', 'dev' */
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 
+app.set('views', __dirname + '/views');
+app.set('view engine', jade);
+
+
 app.get('/', function(request, response) {
   response.send('Api Running!');
 });
 
-app.get('/user', user.get_user);
+/*
+Routers for user
+*/
 
-app.put('/user', user.put_user);
+app.get('/user', user.get_users);
+
+app.get('/user:authtoken', user.get_userByAuthToken);
 
 app.post('/user', user.post_user);
 
-app.delete('/user', user.delete_user);
+app.put('/user/:authtoken', user.put_user);
 
+app.delete('/user/:authtoken', user.delete_user);
+
+/*
+Routers for medic
+
+
+app.get('/medic', medic.medic.get_medics);
+
+app.get('/medic/:')
+
+*/
 var port = process.env.PORT || 5000;
 
 app.listen(port);
