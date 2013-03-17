@@ -1,5 +1,6 @@
 var express = require('express');
 var user = require('./user/user.js');
+var medic = require('./medic/medic.js');
 
 var app = express.createServer();
 
@@ -7,10 +8,9 @@ app.use(express.logger('dev')); /* 'default', 'short', 'tiny', 'dev' */
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 
-app.set('views', __dirname + '/views');
-app.set('view engine', jade);
 
 
+// Test Condition
 app.get('/', function(request, response) {
   response.send('Api Running!');
 });
@@ -29,15 +29,14 @@ app.put('/user/:authtoken', user.put_user);
 
 app.delete('/user/:authtoken', user.delete_user);
 
+
 /*
 Routers for medic
-
-
-app.get('/medic', medic.medic.get_medics);
-
-app.get('/medic/:')
-
 */
+
+app.get('/medic', medic.get_medics);
+
+
 var port = process.env.PORT || 5000;
 
 app.listen(port);
