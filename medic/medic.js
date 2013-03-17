@@ -2,7 +2,7 @@ var get_medics = function(request, response) {
 	var user_data = request.body;
 	var sort_by ;
 	console.log(user_data);
-	response.send('kdsnkf');
+	response.send('Medic Get');
 	
 	if(request.query.name)
 		sort_by = request.query.name;

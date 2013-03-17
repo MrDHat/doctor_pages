@@ -11,7 +11,7 @@ var post_user = function(request, response){
 }
 
 var get_users = function(request, response){
-	response.send('klsafnla');
+	response.send('User Get');
 	response.status(200).send('done');
 
 }
